@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
-import { getMovieSearch } from "../service/movieData";
+
 import imageBaseUrl from "../service/url";
+import { getMovieSearch } from "../service/movieData";
 
 const LINK_TYPE_PATH = {
   tv: "tv",
@@ -42,10 +43,10 @@ export default class SearchBar extends Component {
     return (
       <div
         style={{
+          alignItems: "center",
           display: "flex",
           justifyContent: "space-between",
-          padding: "1% 4%",
-          alignItems: "center"
+          padding: "1% 4%"
         }}
       >
         <div>
@@ -63,16 +64,21 @@ export default class SearchBar extends Component {
 
           <div
             style={{
-              position: "absolute",
               background: "white",
-              width: "350px",
               display: "flex",
-              flexDirection: "column"
+              flexDirection: "column",
+              position: "absolute",
+              width: "350px"
             }}
           >
             {this.state.data.map(e => (
               <Link key={e.id} to={`/${LINK_TYPE_PATH[e.media_type]}/${e.id}`}>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    alignItems: "center",
+                    display: "flex"
+                  }}
+                >
                   <div style={{ flex: "0 1 10%" }}>
                     <img
                       style={{ width: "10vw" }}
@@ -93,7 +99,17 @@ export default class SearchBar extends Component {
             ))}
           </div>
 
-          <button onClick={this.fetchMovieSearch}>search</button>
+          <button
+            style={{
+              background: "bisque",
+              borderRadius: "10%",
+              height: "32px",
+              width: "13%"
+            }}
+            onClick={this.fetchMovieSearch}
+          >
+            search
+          </button>
         </div>
       </div>
     );

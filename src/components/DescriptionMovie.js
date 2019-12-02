@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { getMovieDetail } from "../service/movieData";
+
 import CreditsMovie from "./CreditsMovie";
 import imageBaseUrl from "../service/url";
 

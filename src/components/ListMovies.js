@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { searchMovieData } from "../service/movieData";
 import Movie from "./Movie";
 

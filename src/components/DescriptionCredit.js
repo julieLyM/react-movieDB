@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { getMovieCharacter } from "../service/movieData";
+
 import imageBaseUrl from "../service/url";
 
 export default class DescriptionCredit extends Component {
@@ -43,7 +45,7 @@ export default class DescriptionCredit extends Component {
         <p>{birthday}</p>
         <p>{deathday}</p>
         <p>{place_of_birth}</p>
-        <p> {biography}</p>
+        <p>{biography}</p>
       </div>
     );
   }

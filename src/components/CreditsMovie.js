@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { getMovieCredit } from "../service/movieData";
 import { Link } from "react-router-dom";
+
+import { getMovieCredit } from "../service/movieData";
 
 export default class CreditsMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieCredit: [],
-      movieActor: []
+      movieCredit: []
     };
   }
 

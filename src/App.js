@@ -1,10 +1,12 @@
 import React from "react";
-import "./App.css";
-import ListMovies from "./components/ListMovies";
 import { BrowserRouter, Route } from "react-router-dom";
-import DescriptionMovie from "./components/DescriptionMovie";
-import SearchBar from "./components/SearchBar";
+
 import DescriptionCredit from "./components/DescriptionCredit";
+import DescriptionMovie from "./components/DescriptionMovie";
+import ListMovies from "./components/ListMovies";
+import SearchBar from "./components/SearchBar";
+
+import "./App.css";
 
 function App() {
   return (
