@@ -1,0 +1,9 @@
+body {
+  background: black;
+  color: white;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
