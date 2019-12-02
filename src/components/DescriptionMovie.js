@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import { getMovieDetail } from "../service/movieData";
 
 import CreditsMovie from "./CreditsMovie";
 import imageBaseUrl from "../service/url";
 
-export default class DescriptionMovie extends Component {
+export default class DescriptionMovie extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
 
@@ -11,7 +11,7 @@ const LINK_TYPE_PATH = {
   movie: "movie"
 };
 
-export default class SearchBar extends Component {
+export default class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,9 +37,8 @@ export default class SearchBar extends Component {
     );
   };
 
-  multiResults = () => {};
-
   render() {
+    const { data } = this.state;
     return (
       <div
         style={{
@@ -52,13 +51,24 @@ export default class SearchBar extends Component {
         <div>
           <Link to="/">
             {" "}
-            <h1 style={{ textTransform: "uppercase" }}>Search Movie App</h1>
+            <h1
+              style={{
+                textDecoration: "none",
+                textTransform: "uppercase"
+              }}
+            >
+              Search Movie App
+            </h1>
           </Link>
         </div>
 
         <div style={{ position: "relative" }}>
           <input
-            style={{ width: "350px", height: "25px", position: "relative" }}
+            style={{
+              width: "350px",
+              height: "25px",
+              position: "relative"
+            }}
             onChange={this.onChangeSearch}
           />
 
@@ -71,8 +81,11 @@ export default class SearchBar extends Component {
               width: "350px"
             }}
           >
-            {this.state.data.map(e => (
-              <Link key={e.id} to={`/${LINK_TYPE_PATH[e.media_type]}/${e.id}`}>
+            {data.map(element => (
+              <Link
+                key={element.id}
+                to={`/${LINK_TYPE_PATH[element.media_type]}/${element.id}`}
+              >
                 <div
                   style={{
                     alignItems: "center",
@@ -83,16 +96,16 @@ export default class SearchBar extends Component {
                     <img
                       style={{ width: "10vw" }}
                       src={
-                        e.media_type === "movie"
-                          ? `${imageBaseUrl}${e.poster_path}`
-                          : `${imageBaseUrl}${e.profile_path}`
+                        element.media_type === "movie"
+                          ? `${imageBaseUrl}${element.poster_path}`
+                          : `${imageBaseUrl}${element.profile_path}`
                       }
                       alt="pic"
                     />
                   </div>
                   <div>
-                    {e.name}
-                    {e.title}
+                    {element.name}
+                    {element.title}
                   </div>
                 </div>
               </Link>

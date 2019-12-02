@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import { getMovieCharacter } from "../service/movieData";
 
 import imageBaseUrl from "../service/url";
 
-export default class DescriptionCredit extends Component {
+export default class DescriptionCredit extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ export default class DescriptionCredit extends Component {
       <div>
         <h2>{name}</h2>
         <div>
-          <img src={`${imageBaseUrl}${profile_path}`} alt="actor movie" />{" "}
+          <img src={`${imageBaseUrl}${profile_path}`} alt="actor movie" />
         </div>
         <p>{known_for_department}</p>
         <p>{birthday}</p>

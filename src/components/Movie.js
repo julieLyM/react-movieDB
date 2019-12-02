@@ -1,20 +1,23 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 
 import imageBaseUrl from "../service/url";
 
-const Movie = ({ res }) => {
+const Movie = memo(({ element }) => {
   return (
     <div>
-      <Link to={`/movie/${res.id}`}>
+      <Link to={`/movie/${element.id}`}>
         <div>
-          <img src={`${imageBaseUrl}${res.poster_path}`} alt="poster movie" />
+          <img
+            src={`${imageBaseUrl}${element.poster_path}`}
+            alt="poster movie"
+          />
         </div>
       </Link>
 
-      <p>{res.title}</p>
+      <p>{element.title}</p>
     </div>
   );
-};
+});
 
 export default Movie;

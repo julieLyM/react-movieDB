@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import { searchMovieData } from "../service/movieData";
 import Movie from "./Movie";
 
-export default class ListMovies extends Component {
+export default class ListMovies extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,13 +16,14 @@ export default class ListMovies extends Component {
   }
 
   fetchData = async () => {
-    const results = await searchMovieData();
+    const data = await searchMovieData();
     this.setState({
-      results: results.results
+      results: data.results
     });
   };
 
   render() {
+    const { results } = this.state;
     return (
       <div
         style={{
@@ -35,8 +36,8 @@ export default class ListMovies extends Component {
           margin: "10px"
         }}
       >
-        {this.state.results.map(res => (
-          <Movie key={res.id} res={res} />
+        {results.map(element => (
+          <Movie key={element.id} element={element} />
         ))}
       </div>
     );
